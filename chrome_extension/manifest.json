@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "SafeScan (Prototype)",
+  "version": "1.0",
+  "description": "FYP 1 Prototype: Browser extension for phishing detection demonstration",
+
+  "permissions": [
+    "tabs",
+    "scripting",
+    "notifications"
+  ],
+
+  "host_permissions": [
+  "http://localhost:5000/*",
+  "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png"
+  }
+}
